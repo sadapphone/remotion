@@ -166,6 +166,13 @@ export const RichestCard: React.FC<{
           <span className="w-3 h-3 rounded-full bg-purple-500"></span>
         </div>
       </div>
+
+      {/* Contoh penggunaan class centering */}
+      {/* <div className="container">
+        <div className="center">
+          Centered content
+        </div>
+      </div> */}
     </div>
   </div>
 );
