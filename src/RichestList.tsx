@@ -134,15 +134,20 @@ export const RichestList: React.FC = () => {
   const mainCardsAnimationDuration = initialDelay + (4 * cardEntryDuration); // ~3 seconds total for initial animation
 
   // Card configuration
-  const cardWidth = 500; // Reduced card width for better proportions
-  const cardSpacing = 40; // Appropriate spacing between cards
+  const cardWidth = 300; // Significantly reduced card width for better proportions
+  const cardSpacing = 20; // Smaller spacing between cards
   const totalWidth = validatedData.length * (cardWidth + cardSpacing);
 
   // Function to get static card position during initial animation
   const getStaticCardPosition = (index: number) => {
-    const basePosition = 1920 / 2 - (cardWidth / 2); // Memusatkan kartu dengan lebih baik
-    // Offset tambahan untuk memastikan kartu pertama terlihat sempurna
-    return basePosition + index * (cardWidth + cardSpacing) - 100;
+    // Calculate center position of the screen and adjust to display multiple cards
+    const screenWidth = 2560; // Based on the composition width from Root.tsx
+    const cardsToShow = 5; // Number of cards to show at once
+    const totalWidthToShow = (cardsToShow * cardWidth) + ((cardsToShow - 1) * cardSpacing);
+    const startPosition = (screenWidth - totalWidthToShow) / 2;
+    
+    // Position cards relative to the center
+    return startPosition + index * (cardWidth + cardSpacing);
   };
 
   // Function to get initial position for scrolling cards
