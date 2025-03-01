@@ -254,8 +254,8 @@ export const RichestList: React.FC = () => {
                         extrapolateRight: "clamp",
                       }
                     ),
-                    transform: `translateY(calc(-33% + ${slideUpOffset + bounceEffect * 20}px))`,
-                    height: "85vh",
+                    transform: `translateY(calc(-38% + ${slideUpOffset + bounceEffect * 20}px))`,
+                    height: "95vh",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
