@@ -2,4 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Gaya global lainnya Anda di sini */
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .card-animation {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+}
