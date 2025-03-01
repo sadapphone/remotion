@@ -15,7 +15,14 @@ export const RichestCard: React.FC<{
   style?: React.CSSProperties;
 }> = ({ person, style }) => (
   <div className="flex justify-center items-center p-0" style={{...style, height: "100%"}}>
-    <div className="w-[600px] h-auto max-h-[750px] overflow-visible rounded-xl shadow-2xl bg-white border border-gray-200 transform transition-all duration-300 hover:shadow-[0_15px_40px_-12px_rgba(0,0,0,0.35)] hover:scale-105">
+    {/* 
+     * PENTING: Ubah class di bawah ini untuk menyesuaikan kartu
+     * 1. Ubah w-[600px] jika perlu mengubah lebar kartu
+     * 2. Ubah h-auto menjadi h-[650px] untuk ukuran tetap
+     * 3. Kurangi max-h-[750px] menjadi nilai yang lebih kecil (misal max-h-[650px]) jika kartu terlalu tinggi
+     * 4. Pastikan overflow-visible (jangan diubah menjadi overflow-auto atau overflow-scroll)
+     */}
+    <div className="w-[600px] h-[650px] max-h-[650px] overflow-visible rounded-xl shadow-2xl bg-white border border-gray-200 transform transition-all duration-300 hover:shadow-[0_15px_40px_-12px_rgba(0,0,0,0.35)] hover:scale-105">
       {/* Header - Gradient Background with Rank */}
       <div className="relative">
         <div className="absolute top-5 left-5 z-10 bg-black/80 backdrop-blur-md text-white font-bold text-3xl rounded-full h-20 w-20 flex items-center justify-center border-4 border-yellow-500 shadow-xl">
@@ -41,13 +48,18 @@ export const RichestCard: React.FC<{
         </div>
       </div>
 
-      {/* Name Section */}
-      <div className="px-4 pt-4 pb-3 text-center">
-        <h1 className="text-3xl font-bold text-gray-800 tracking-tight leading-tight mb-2">
+      {/* 
+       * Name Section
+       * PENTING: 
+       * 1. Kurangi margin dan padding jika perlu menghemat ruang vertikal 
+       * 2. Kurangi ukuran font jika terlalu besar (text-3xl menjadi text-2xl)
+       */}
+      <div className="px-4 pt-3 pb-2 text-center">
+        <h1 className="text-2xl font-bold text-gray-800 tracking-tight leading-tight mb-1">
           {person.jersey_name || person.name.split(" ").pop()}
         </h1>
-        <p className="text-gray-500 text-lg mb-2 italic">{person.name}</p>
-        <div className="flex justify-center my-2">
+        <p className="text-gray-500 text-base mb-1 italic">{person.name}</p>
+        <div className="flex justify-center my-1">
           <span className="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full flex items-center gap-1">
             <MapPin className="h-4 w-4" /> {person.country}{" "}
             {person.flag || "🌍"}
@@ -55,8 +67,11 @@ export const RichestCard: React.FC<{
         </div>
       </div>
 
-      {/* Assists Info */}
-      <div className="px-4 py-5 bg-gradient-to-r from-green-600 via-emerald-500 to-teal-600 text-white text-center">
+      {/* 
+       * Assists Info 
+       * PENTING: Kurangi padding (py-5 menjadi py-3) untuk menghemat ruang vertikal
+       */}
+      <div className="px-4 py-3 bg-gradient-to-r from-green-600 via-emerald-500 to-teal-600 text-white text-center">
         <p className="text-lg uppercase font-semibold tracking-wider opacity-90 mb-1">
           Top Assists
         </p>
@@ -68,8 +83,13 @@ export const RichestCard: React.FC<{
         </div>
       </div>
 
-      {/* Details Grid - Compact */}
-      <div className="grid grid-cols-2 gap-3 p-5 bg-gray-50">
+      {/* 
+       * Details Grid - Compact 
+       * PENTING: 
+       * 1. Kurangi padding (p-5 menjadi p-3) untuk menghemat ruang vertikal
+       * 2. Kurangi gap (gap-3 menjadi gap-2) jika perlu
+       */}
+      <div className="grid grid-cols-2 gap-2 p-3 bg-gray-50">
         <div className="flex items-center gap-3 p-3 rounded-lg bg-white shadow-sm border border-gray-100">
           <CalendarDays className="h-7 w-7 text-blue-600 flex-shrink-0" />
           <div>
@@ -131,8 +151,12 @@ export const RichestCard: React.FC<{
         </div>
       </div>
 
-      {/* Footer */}
-      <div className="px-4 py-3 border-t border-gray-200 bg-gray-50 flex justify-between items-center mt-auto">
+      {/* 
+       * Footer 
+       * PENTING: Kurangi padding (py-3 menjadi py-2) untuk menghemat ruang vertikal 
+       * Anda juga bisa menghapus footer sepenuhnya jika diperlukan ruang lebih
+       */}
+      <div className="px-4 py-2 border-t border-gray-200 bg-gray-50 flex justify-between items-center mt-auto">
         <div className="text-sm text-gray-600 font-medium">
           Top Football Assists 2024
         </div>

@@ -254,8 +254,14 @@ export const RichestList: React.FC = () => {
                         extrapolateRight: "clamp",
                       }
                     ),
-                    transform: `translateY(calc(-38% + ${slideUpOffset + bounceEffect * 20}px))`,
-                    height: "95vh",
+                    /* 
+                     * PENTING: Ubah angka di bawah ini untuk menyesuaikan posisi kartu
+                     * -38% adalah posisi vertikal kartu (semakin kecil nilainya, semakin ke atas)
+                     * Gunakan nilai yang lebih kecil (misalnya -25% atau -20%) untuk menurunkan kartu
+                     * Ubah 95vh menjadi nilai yang lebih rendah (80vh atau 75vh) untuk mengurangi tinggi kartu keseluruhan
+                     */
+                    transform: `translateY(calc(-25% + ${slideUpOffset + bounceEffect * 20}px))`,
+                    height: "75vh", // Mengurangi tinggi kartu untuk memastikan seluruh konten terlihat
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
