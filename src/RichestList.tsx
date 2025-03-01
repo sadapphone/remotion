@@ -135,7 +135,7 @@ export const RichestList: React.FC = () => {
 
   // Card configuration
   const cardWidth = 900; // Ukuran kartu yang disesuaikan untuk tampilan 2K
-  const cardSpacing = 60; // Spacing lebih besar untuk jarak yang lebih baik
+  const cardSpacing = 10; // Spacing lebih besar untuk jarak yang lebih baik
   const totalWidth = validatedData.length * (cardWidth + cardSpacing);
 
   // Function to get static card position during initial animation
