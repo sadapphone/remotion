@@ -55,19 +55,15 @@ export const RichestCard: React.FC<{
         </div>
       </div>
 
-      {/* Wealth Info */}
+      {/* Assists Info */}
       <div className="px-4 py-3 bg-gradient-to-r from-green-600 via-emerald-500 to-teal-600 text-white text-center">
         <p className="text-sm uppercase font-semibold tracking-wider opacity-90 mb-0.5">
-          Net Worth
+          Top Assists
         </p>
         <div className="flex items-center justify-center gap-1">
-          <Money className="w-5 h-5" />
+          <Trophy className="w-5 h-5" />
           <span className="text-3xl font-extrabold">
-            $
-            {person.net_worth ||
-              person.netWorth?.replace("$", "").replace("B", "") ||
-              "0"}
-            B
+            {person.assists || 0}
           </span>
         </div>
       </div>
@@ -100,10 +96,10 @@ export const RichestCard: React.FC<{
           <Trophy className="h-5 w-5 text-amber-500 flex-shrink-0" />
           <div>
             <p className="text-xs text-gray-500 uppercase tracking-wide">
-              Source
+              Position
             </p>
             <p className="font-medium text-gray-800 text-xs">
-              {person.source || "Business"}
+              {person.position || "Midfielder"}
             </p>
           </div>
         </div>
@@ -124,10 +120,10 @@ export const RichestCard: React.FC<{
           <Ruler className="h-5 w-5 text-purple-500 flex-shrink-0" />
           <div className="w-full">
             <p className="text-xs text-gray-500 uppercase tracking-wide">
-              Industry
+              Height
             </p>
             <p className="font-medium text-gray-800 text-xs">
-              {person.industry || person.position || "Technology"}
+              {person.height_cm ? `${person.height_cm} cm` : "N/A"}
             </p>
           </div>
         </div>
@@ -136,7 +132,7 @@ export const RichestCard: React.FC<{
       {/* Footer */}
       <div className="px-2 py-1 border-t border-gray-200 bg-gray-50 flex justify-between items-center">
         <div className="text-xxs text-gray-600 font-medium">
-          Forbes 2024
+          Top Football Assists 2024
         </div>
         <div className="flex space-x-1">
           <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>

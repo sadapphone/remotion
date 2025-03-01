@@ -88,7 +88,7 @@ const IntroTitle: React.FC = () => {
         >
           World's{" "}
           <span style={{ color: "#cc0000" }}>
-            Richest
+            Football
           </span>
         </h1>
       </div>
@@ -105,7 +105,7 @@ const IntroTitle: React.FC = () => {
             textShadow: "3px 3px 6px rgba(0,0,0,0.2)",
           }}
         >
-          <span style={{ color: "#cc0000" }}>Billionaires</span> of 2024
+          <span style={{ color: "#cc0000" }}>Top Assists</span> of 2024
         </h2>
       </div>
     </div>
