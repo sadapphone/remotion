@@ -14,8 +14,8 @@ export const RichestCard: React.FC<{
   person: TopPlayer;
   style?: React.CSSProperties;
 }> = ({ person, style }) => (
-  <div className="flex justify-center items-center h-full p-0" style={style}>
-    <div className="w-[600px] h-[1000px] overflow-hidden rounded-xl shadow-2xl bg-white border border-gray-200 transform transition-all duration-300 hover:shadow-[0_15px_40px_-12px_rgba(0,0,0,0.35)] hover:scale-105">
+  <div className="flex justify-center items-center p-0" style={{...style, height: "90vh"}}>
+    <div className="w-[600px] h-[900px] overflow-hidden rounded-xl shadow-2xl bg-white border border-gray-200 transform transition-all duration-300 hover:shadow-[0_15px_40px_-12px_rgba(0,0,0,0.35)] hover:scale-105">
       {/* Header - Gradient Background with Rank */}
       <div className="relative">
         <div className="absolute top-5 left-5 z-10 bg-black/80 backdrop-blur-md text-white font-bold text-3xl rounded-full h-20 w-20 flex items-center justify-center border-4 border-yellow-500 shadow-xl">
