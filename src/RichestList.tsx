@@ -254,9 +254,11 @@ export const RichestList: React.FC = () => {
                         extrapolateRight: "clamp",
                       }
                     ),
-                    transform: `translateY(calc(-50% + ${slideUpOffset + bounceEffect * 20}px))`,
-                    maxHeight: "100vh",
-                    overflow: "visible",
+                    transform: `translateY(calc(-33% + ${slideUpOffset + bounceEffect * 20}px))`,
+                    height: "85vh",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
                 >
                   <RichestCard person={person} />
