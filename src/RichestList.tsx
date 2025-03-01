@@ -159,6 +159,12 @@ export const RichestList: React.FC = () => {
         overflow: "hidden",
       }}
     >
+      <div className="relative"> {/* .container */}
+        <div className="absolute top-1/2 w-full text-center text-lg"> {/* .center */}
+          Centered content
+        </div>
+      </div>
+      
       <div
         style={{
           position: "absolute",
