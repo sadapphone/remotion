@@ -7,24 +7,24 @@ export const RichestCard: React.FC<{
   person: TopPlayer;
   style?: React.CSSProperties;
 }> = ({ person, style }) => (
-  <div className="flex justify-center p-4" style={style}>
-    <div className="w-full max-w-[320px] overflow-hidden rounded-xl shadow-2xl bg-white border border-gray-200 transform transition-all duration-300 hover:shadow-[0_20px_60px_-10px_rgba(0,0,0,0.3)] hover:scale-105">
+  <div className="flex justify-center p-2" style={style}>
+    <div className="w-full max-w-[400px] overflow-hidden rounded-xl shadow-2xl bg-white border border-gray-200 transform transition-all duration-300 hover:shadow-[0_20px_60px_-10px_rgba(0,0,0,0.3)] hover:scale-105">
       {/* Header - Gradient Background with Rank */}
       <div className="relative">
-        <div className="absolute top-3 left-3 z-10 bg-black/75 backdrop-blur-md text-white font-bold text-lg rounded-full h-10 w-10 flex items-center justify-center border-2 border-yellow-400">
+        <div className="absolute top-4 left-4 z-10 bg-black/80 backdrop-blur-md text-white font-bold text-lg rounded-full h-12 w-12 flex items-center justify-center border-2 border-yellow-400">
           #{person.rank}
         </div>
-        <div className="h-24 bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-800"></div>
+        <div className="h-32 bg-gradient-to-r from-blue-800 via-blue-600 to-indigo-900"></div>
         
         {/* Avatar - Overlapping Position */}
-        <div className="flex justify-center -mt-12">
-          <div className="w-28 h-28 rounded-full border-4 border-white shadow-xl overflow-hidden bg-white">
+        <div className="flex justify-center -mt-16">
+          <div className="w-32 h-32 rounded-full border-4 border-white shadow-xl overflow-hidden bg-white">
             <img
-              src={person.image}
+              src={`https://i.pravatar.cc/300?img=${person.rank}`}
               alt={person.name}
               className="w-full h-full object-cover"
               onError={(e) => {
-                e.currentTarget.src = 'https://via.placeholder.com/112?text=Profile';
+                e.currentTarget.src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(person.name) + '&background=random&size=128';
               }}
             />
           </div>
@@ -32,36 +32,36 @@ export const RichestCard: React.FC<{
       </div>
       
       {/* Name Section */}
-      <div className="px-4 pt-3 pb-2 text-center">
-        <h1 className="text-2xl font-bold text-gray-800 tracking-tight leading-tight">{person.jersey_name}</h1>
-        <p className="text-gray-500 text-sm mb-1 italic">{person.name}</p>
-        <div className="flex justify-center my-2">
-          <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
-            <MapPin className="h-3 w-3" /> {person.country} {person.flag}
+      <div className="px-6 pt-4 pb-3 text-center">
+        <h1 className="text-3xl font-bold text-gray-800 tracking-tight leading-tight">{person.jersey_name || person.name.split(' ').pop()}</h1>
+        <p className="text-gray-500 text-base mb-2 italic">{person.name}</p>
+        <div className="flex justify-center my-3">
+          <span className="bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-1.5 rounded-full flex items-center gap-1.5">
+            <MapPin className="h-4 w-4" /> {person.country} {person.flag || ''}
           </span>
         </div>
       </div>
       
       {/* Wealth Info */}
-      <div className="px-4 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-center">
-        <p className="text-xs uppercase font-semibold tracking-wider opacity-80">Net Worth</p>
-        <div className="flex items-center justify-center gap-1">
-          <Money className="w-4 h-4" />
-          <span className="text-2xl font-extrabold">${person.net_worth}B</span>
+      <div className="px-6 py-4 bg-gradient-to-r from-green-600 via-emerald-500 to-teal-600 text-white text-center">
+        <p className="text-sm uppercase font-semibold tracking-wider opacity-90 mb-1">Net Worth</p>
+        <div className="flex items-center justify-center gap-2">
+          <Money className="w-5 h-5" />
+          <span className="text-3xl font-extrabold">${person.net_worth || person.netWorth?.replace('$', '').replace('B', '') || '0'}B</span>
         </div>
       </div>
       
       {/* Details Grid */}
-      <div className="grid grid-cols-2 gap-2 p-4 bg-gray-50 text-sm">
-        <div className="flex items-center gap-2 p-2 rounded-lg bg-white shadow-sm border border-gray-100">
-          <CalendarDays className="h-4 w-4 text-blue-500 flex-shrink-0" />
+      <div className="grid grid-cols-2 gap-3 p-5 bg-gray-50 text-sm">
+        <div className="flex items-center gap-3 p-3 rounded-lg bg-white shadow-sm border border-gray-100">
+          <CalendarDays className="h-5 w-5 text-blue-600 flex-shrink-0" />
           <div>
-            <p className="text-xs text-gray-500">Born</p>
-            <p className="font-medium text-gray-800">{person.birth_date}</p>
+            <p className="text-sm text-gray-500">Born</p>
+            <p className="font-medium text-gray-800">{person.birth_date || 'N/A'}</p>
           </div>
         </div>
         
-        <div className="flex items-center gap-2 p-2 rounded-lg bg-white shadow-sm border border-gray-100">
+        <div className="flex items-center gap-3 p-3 rounded-lg bg-white shadow-sm border border-gray-100">
           <Trophy className="h-4 w-4 text-amber-500 flex-shrink-0" />
           <div>
             <p className="text-xs text-gray-500">Source</p>
