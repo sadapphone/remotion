@@ -134,8 +134,8 @@ export const RichestList: React.FC = () => {
   const mainCardsAnimationDuration = initialDelay + (4 * cardEntryDuration); // ~3 seconds total for initial animation
 
   // Card configuration
-  const cardWidth = 400; // Fixed card width (to match RichestCard width)
-  const cardSpacing = 30; // Spacing between cards
+  const cardWidth = 600; // Fixed card width (to match RichestCard width)
+  const cardSpacing = 50; // Spacing between cards
   const totalWidth = validatedData.length * (cardWidth + cardSpacing);
 
   // Function to get static card position during initial animation
