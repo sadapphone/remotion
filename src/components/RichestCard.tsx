@@ -5,8 +5,8 @@ import {
   FaRuler as Ruler,
   FaMapMarkerAlt as MapPin,
   FaTrophy as Trophy,
-  FaMoneyBillWave as Money,
-  FaBuilding as Building,
+  FaFutbol as Football,
+  FaShieldAlt as Team,
   FaUser as User,
 } from "react-icons/fa";
 
@@ -61,7 +61,7 @@ export const RichestCard: React.FC<{
           Top Assists
         </p>
         <div className="flex items-center justify-center gap-1">
-          <Trophy className="w-5 h-5" />
+          <Football className="w-5 h-5" />
           <span className="text-3xl font-extrabold">
             {person.assists || 0}
           </span>
@@ -105,10 +105,10 @@ export const RichestCard: React.FC<{
         </div>
 
         <div className="flex items-center gap-2 p-2 rounded-lg bg-white shadow-sm border border-gray-100">
-          <Building className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+          <Team className="h-5 w-5 text-emerald-600 flex-shrink-0" />
           <div>
             <p className="text-xs text-gray-500 uppercase tracking-wide">
-              Company
+              Team
             </p>
             <p className="font-medium text-gray-800 text-xs">
               {person.team || "N/A"}
