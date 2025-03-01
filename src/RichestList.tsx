@@ -145,7 +145,7 @@ export const RichestList: React.FC = () => {
     const cardsToShow = 4; // Number of cards to show at once
     const totalWidthToShow = (cardsToShow * cardWidth) + ((cardsToShow - 1) * cardSpacing);
     const startPosition = (screenWidth - totalWidthToShow) / 2;
-    
+
     // Position cards relative to the center
     return startPosition + index * (cardWidth + cardSpacing);
   };
@@ -188,7 +188,7 @@ export const RichestList: React.FC = () => {
           height: "100%",
         }}
       />
-      
+
       <Sequence from={0} durationInFrames={introDelay}>
         <IntroTitle />
       </Sequence>
@@ -214,7 +214,7 @@ export const RichestList: React.FC = () => {
                 ? getStaticCardPosition(index)
                 : getScrollingCardPosition(index);
 
-              const slideUpOffset = index < 4 
+              const slideUpOffset = index < 4
                 ? interpolate(
                     frame - delay - introDelay,
                     [0, 30],
@@ -223,7 +223,7 @@ export const RichestList: React.FC = () => {
                       extrapolateLeft: "clamp",
                       extrapolateRight: "clamp",
                     }
-                  ) 
+                  )
                 : 0;
 
               const bounceEffect = spring({
@@ -244,6 +244,7 @@ export const RichestList: React.FC = () => {
                   style={{
                     position: "absolute",
                     left: initialPosition,
+                    top: "50%",
                     opacity: interpolate(
                       frame - delay - introDelay,
                       [0, 20],
@@ -253,7 +254,7 @@ export const RichestList: React.FC = () => {
                         extrapolateRight: "clamp",
                       }
                     ),
-                    transform: `translateY(${slideUpOffset + bounceEffect * 20}px)`,
+                    transform: `translateY(calc(-50% + ${slideUpOffset + bounceEffect * 20}px))`,
                   }}
                 >
                   <RichestCard person={person} />
