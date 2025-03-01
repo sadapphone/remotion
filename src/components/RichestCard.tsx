@@ -18,14 +18,14 @@ export const RichestCard: React.FC<{
     <div className="w-[600px] h-[1000px] overflow-hidden rounded-xl shadow-2xl bg-white border border-gray-200 transform transition-all duration-300 hover:shadow-[0_15px_40px_-12px_rgba(0,0,0,0.35)] hover:scale-105">
       {/* Header - Gradient Background with Rank */}
       <div className="relative">
-        <div className="absolute top-3 left-3 z-10 bg-black/80 backdrop-blur-md text-white font-bold text-xl rounded-full h-12 w-12 flex items-center justify-center border-2 border-yellow-400 shadow-lg">
+        <div className="absolute top-4 left-4 z-10 bg-black/80 backdrop-blur-md text-white font-bold text-3xl rounded-full h-16 w-16 flex items-center justify-center border-3 border-yellow-500 shadow-xl">
           #{person.rank}
         </div>
-        <div className="h-24 bg-gradient-to-r from-blue-800 via-blue-600 to-indigo-900"></div>
+        <div className="h-32 bg-gradient-to-r from-blue-800 via-blue-600 to-indigo-900"></div>
 
         {/* Avatar - Overlapping Position */}
-        <div className="flex justify-center -mt-12">
-          <div className="w-24 h-24 rounded-full border-4 border-white shadow-xl overflow-hidden bg-white">
+        <div className="flex justify-center -mt-16">
+          <div className="w-40 h-40 rounded-full border-6 border-white shadow-xl overflow-hidden bg-white">
             <img
               src={`https://i.pravatar.cc/400?img=${(person.rank % 70) + 1}`}
               alt={person.name}
