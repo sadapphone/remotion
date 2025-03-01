@@ -10,8 +10,8 @@ export const RemotionRoot: React.FC = () => {
         component={RichestList}
         durationInFrames={60*60} // 15.5 seconds (60fps * 15.5 seconds)
         fps={60}
-        width={1920}
-        height={1080}
+        width={2560}
+        height={1440}
       />
     </>
   );

@@ -134,14 +134,15 @@ export const RichestList: React.FC = () => {
   const mainCardsAnimationDuration = initialDelay + (4 * cardEntryDuration); // ~3 seconds total for initial animation
 
   // Card configuration
-  const cardWidth = 650; // Ukuran kartu yang jauh lebih besar untuk tampilan 2K
-  const cardSpacing = 40; // Spacing lebih besar
+  const cardWidth = 900; // Ukuran kartu yang disesuaikan untuk tampilan 2K
+  const cardSpacing = 60; // Spacing lebih besar untuk jarak yang lebih baik
   const totalWidth = validatedData.length * (cardWidth + cardSpacing);
 
   // Function to get static card position during initial animation
   const getStaticCardPosition = (index: number) => {
     const basePosition = 1920 / 2 - (cardWidth / 2); // Memusatkan kartu dengan lebih baik
-    return basePosition + index * (cardWidth + cardSpacing);
+    // Offset tambahan untuk memastikan kartu pertama terlihat sempurna
+    return basePosition + index * (cardWidth + cardSpacing) - 100;
   };
 
   // Function to get initial position for scrolling cards

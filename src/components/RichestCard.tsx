@@ -7,18 +7,18 @@ export const RichestCard: React.FC<{
   person: TopPlayer;
   style?: React.CSSProperties;
 }> = ({ person, style }) => (
-  <div className="flex justify-center p-2" style={style}>
-    <div className="w-full max-w-[600px] overflow-hidden rounded-xl shadow-2xl bg-white border border-gray-200 transform transition-all duration-300 hover:shadow-[0_25px_70px_-12px_rgba(0,0,0,0.35)] hover:scale-105">
+  <div className="flex justify-center p-0" style={style}>
+    <div className="w-full max-w-[850px] overflow-hidden rounded-xl shadow-2xl bg-white border border-gray-200 transform transition-all duration-300 hover:shadow-[0_25px_70px_-12px_rgba(0,0,0,0.35)] hover:scale-105">
       {/* Header - Gradient Background with Rank */}
       <div className="relative">
-        <div className="absolute top-5 left-5 z-10 bg-black/80 backdrop-blur-md text-white font-bold text-2xl rounded-full h-16 w-16 flex items-center justify-center border-2 border-yellow-400 shadow-lg">
+        <div className="absolute top-6 left-6 z-10 bg-black/80 backdrop-blur-md text-white font-bold text-3xl rounded-full h-20 w-20 flex items-center justify-center border-2 border-yellow-400 shadow-lg">
           #{person.rank}
         </div>
-        <div className="h-44 bg-gradient-to-r from-blue-800 via-blue-600 to-indigo-900"></div>
+        <div className="h-52 bg-gradient-to-r from-blue-800 via-blue-600 to-indigo-900"></div>
         
         {/* Avatar - Overlapping Position */}
-        <div className="flex justify-center -mt-20">
-          <div className="w-40 h-40 rounded-full border-6 border-white shadow-xl overflow-hidden bg-white">
+        <div className="flex justify-center -mt-24">
+          <div className="w-48 h-48 rounded-full border-6 border-white shadow-xl overflow-hidden bg-white">
             <img
               src={`https://randomuser.me/api/portraits/${person.rank % 2 === 0 ? 'women' : 'men'}/${(person.rank % 70) + 1}.jpg`}
               alt={person.name}
@@ -32,9 +32,9 @@ export const RichestCard: React.FC<{
       </div>
       
       {/* Name Section */}
-      <div className="px-8 pt-6 pb-4 text-center">
-        <h1 className="text-4xl font-bold text-gray-800 tracking-tight leading-tight">{person.jersey_name || person.name.split(' ').pop()}</h1>
-        <p className="text-gray-500 text-xl mb-3 italic">{person.name}</p>
+      <div className="px-10 pt-8 pb-5 text-center">
+        <h1 className="text-5xl font-bold text-gray-800 tracking-tight leading-tight">{person.jersey_name || person.name.split(' ').pop()}</h1>
+        <p className="text-gray-500 text-2xl mb-4 italic">{person.name}</p>
         <div className="flex justify-center my-4">
           <span className="bg-blue-100 text-blue-800 text-lg font-semibold px-6 py-2 rounded-full flex items-center gap-2.5">
             <MapPin className="h-5 w-5" /> {person.country} {person.flag || '🌍'}
@@ -43,16 +43,16 @@ export const RichestCard: React.FC<{
       </div>
       
       {/* Wealth Info */}
-      <div className="px-8 py-6 bg-gradient-to-r from-green-600 via-emerald-500 to-teal-600 text-white text-center">
-        <p className="text-lg uppercase font-semibold tracking-wider opacity-90 mb-2">Net Worth</p>
-        <div className="flex items-center justify-center gap-3">
-          <Money className="w-8 h-8" />
-          <span className="text-5xl font-extrabold">${person.net_worth || person.netWorth?.replace('$', '').replace('B', '') || '0'}B</span>
+      <div className="px-10 py-8 bg-gradient-to-r from-green-600 via-emerald-500 to-teal-600 text-white text-center">
+        <p className="text-xl uppercase font-semibold tracking-wider opacity-90 mb-3">Net Worth</p>
+        <div className="flex items-center justify-center gap-4">
+          <Money className="w-10 h-10" />
+          <span className="text-6xl font-extrabold">${person.net_worth || person.netWorth?.replace('$', '').replace('B', '') || '0'}B</span>
         </div>
       </div>
       
       {/* Details Grid */}
-      <div className="grid grid-cols-2 gap-4 p-6 bg-gray-50">
+      <div className="grid grid-cols-2 gap-6 p-8 bg-gray-50">
         <div className="flex items-center gap-4 p-4 rounded-lg bg-white shadow-md border border-gray-100">
           <CalendarDays className="h-7 w-7 text-blue-600 flex-shrink-0" />
           <div>
@@ -95,8 +95,8 @@ export const RichestCard: React.FC<{
       </div>
       
       {/* Footer */}
-      <div className="px-6 py-4 border-t border-gray-200 bg-gray-50 flex justify-between items-center">
-        <div className="text-sm text-gray-600 font-medium">
+      <div className="px-8 py-5 border-t border-gray-200 bg-gray-50 flex justify-between items-center">
+        <div className="text-base text-gray-600 font-medium">
           Forbes Billionaires 2024
         </div>
         <div className="flex space-x-3">
