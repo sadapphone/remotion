@@ -20,45 +20,25 @@ const { fontFamily: rubikFont } = loadRubik();
 const IntroTitle: React.FC = () => {
   const frame = useCurrentFrame();
 
-  const titleSlideUp = interpolate(
-    frame,
-    [0, 25],
-    [100, 0],
-    {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    }
-  );
+  const titleSlideUp = interpolate(frame, [0, 25], [100, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
-  const subtitleSlideUp = interpolate(
-    frame,
-    [15, 40],
-    [100, 0],
-    {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    }
-  );
+  const subtitleSlideUp = interpolate(frame, [15, 40], [100, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
-  const titleOpacity = interpolate(
-    frame,
-    [0, 20],
-    [0, 1],
-    {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    }
-  );
+  const titleOpacity = interpolate(frame, [0, 20], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
-  const subtitleOpacity = interpolate(
-    frame,
-    [15, 35],
-    [0, 1],
-    {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    }
-  );
+  const subtitleOpacity = interpolate(frame, [15, 35], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
   return (
     <div
@@ -86,10 +66,7 @@ const IntroTitle: React.FC = () => {
             textShadow: "4px 4px 8px rgba(0,0,0,0.3)",
           }}
         >
-          World's{" "}
-          <span style={{ color: "#cc0000" }}>
-            Football
-          </span>
+          World's <span style={{ color: "#cc0000" }}>Football</span>
         </h1>
       </div>
 
@@ -131,7 +108,7 @@ export const RichestList: React.FC = () => {
   const cardEntryDuration = 30; // 0.5 seconds per card
   const scrollDuration = fps * 60; // 10 seconds scroll
   const staggerDelay = 15; // 0.25 second between cards
-  const mainCardsAnimationDuration = initialDelay + (4 * cardEntryDuration); // ~3 seconds total for initial animation
+  const mainCardsAnimationDuration = initialDelay + 4 * cardEntryDuration; // ~3 seconds total for initial animation
 
   // Card configuration
   const cardWidth = 600; // Fixed card width (to match RichestCard width)
@@ -143,7 +120,8 @@ export const RichestList: React.FC = () => {
     // Calculate center position of the screen and adjust to display multiple cards
     const screenWidth = 2560; // Based on the composition width from Root.tsx
     const cardsToShow = 4; // Number of cards to show at once
-    const totalWidthToShow = (cardsToShow * cardWidth) + ((cardsToShow - 1) * cardSpacing);
+    const totalWidthToShow =
+      cardsToShow * cardWidth + (cardsToShow - 1) * cardSpacing;
     const startPosition = (screenWidth - totalWidthToShow) / 2;
 
     // Position cards relative to the center
@@ -164,7 +142,7 @@ export const RichestList: React.FC = () => {
     {
       extrapolateRight: "clamp",
       extrapolateLeft: "clamp",
-    }
+    },
   );
 
   return (
@@ -214,17 +192,13 @@ export const RichestList: React.FC = () => {
                 ? getStaticCardPosition(index)
                 : getScrollingCardPosition(index);
 
-              const slideUpOffset = index < 4
-                ? interpolate(
-                    frame - delay - introDelay,
-                    [0, 30],
-                    [200, 0],
-                    {
+              const slideUpOffset =
+                index < 4
+                  ? interpolate(frame - delay - introDelay, [0, 30], [200, 0], {
                       extrapolateLeft: "clamp",
                       extrapolateRight: "clamp",
-                    }
-                  )
-                : 0;
+                    })
+                  : 0;
 
               const bounceEffect = spring({
                 frame: frame - delay - introDelay,
@@ -252,16 +226,16 @@ export const RichestList: React.FC = () => {
                       {
                         extrapolateLeft: "clamp",
                         extrapolateRight: "clamp",
-                      }
+                      },
                     ),
-                    /* 
+                    /*
                      * PENTING: Ubah angka di bawah ini untuk menyesuaikan posisi kartu
                      * -38% adalah posisi vertikal kartu (semakin kecil nilainya, semakin ke atas)
                      * Gunakan nilai yang lebih kecil (misalnya -25% atau -20%) untuk menurunkan kartu
                      * Ubah 95vh menjadi nilai yang lebih rendah (80vh atau 75vh) untuk mengurangi tinggi kartu keseluruhan
                      */
                     transform: `translateY(calc(-25% + ${slideUpOffset + bounceEffect * 20}px))`,
-                    height: "75vh", // Mengurangi tinggi kartu untuk memastikan seluruh konten terlihat
+                    height: "95vh", // Mengurangi tinggi kartu untuk memastikan seluruh konten terlihat
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
