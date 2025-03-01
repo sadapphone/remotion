@@ -15,7 +15,7 @@ export const RichestCard: React.FC<{
   style?: React.CSSProperties;
 }> = ({ person, style }) => (
   <div className="flex justify-center p-0" style={style}>
-    <div className="w-full max-w-[300px] overflow-hidden rounded-xl shadow-2xl bg-white border border-gray-200 transform transition-all duration-300 hover:shadow-[0_15px_40px_-12px_rgba(0,0,0,0.35)] hover:scale-105">
+    <div className="w-[400px] overflow-hidden rounded-xl shadow-2xl bg-white border border-gray-200 transform transition-all duration-300 hover:shadow-[0_15px_40px_-12px_rgba(0,0,0,0.35)] hover:scale-105">
       {/* Header - Gradient Background with Rank */}
       <div className="relative">
         <div className="absolute top-3 left-3 z-10 bg-black/80 backdrop-blur-md text-white font-bold text-xl rounded-full h-12 w-12 flex items-center justify-center border-2 border-yellow-400 shadow-lg">
@@ -24,10 +24,10 @@ export const RichestCard: React.FC<{
         <div className="h-24 bg-gradient-to-r from-blue-800 via-blue-600 to-indigo-900"></div>
 
         {/* Avatar - Overlapping Position */}
-        <div className="flex justify-center -mt-10">
-          <div className="w-20 h-20 rounded-full border-4 border-white shadow-xl overflow-hidden bg-white">
+        <div className="flex justify-center -mt-12">
+          <div className="w-24 h-24 rounded-full border-4 border-white shadow-xl overflow-hidden bg-white">
             <img
-              src={`https://randomuser.me/api/portraits/${person.rank % 2 === 0 ? "women" : "men"}/${(person.rank % 70) + 1}.jpg`}
+              src={`https://i.pravatar.cc/400?img=${(person.rank % 70) + 1}`}
               alt={person.name}
               className="w-full h-full object-cover"
               onError={(e) => {
@@ -56,13 +56,13 @@ export const RichestCard: React.FC<{
       </div>
 
       {/* Wealth Info */}
-      <div className="px-4 py-2 bg-gradient-to-r from-green-600 via-emerald-500 to-teal-600 text-white text-center">
-        <p className="text-xs uppercase font-semibold tracking-wider opacity-90 mb-0.5">
+      <div className="px-4 py-3 bg-gradient-to-r from-green-600 via-emerald-500 to-teal-600 text-white text-center">
+        <p className="text-sm uppercase font-semibold tracking-wider opacity-90 mb-0.5">
           Net Worth
         </p>
         <div className="flex items-center justify-center gap-1">
-          <Money className="w-4 h-4" />
-          <span className="text-2xl font-extrabold">
+          <Money className="w-5 h-5" />
+          <span className="text-3xl font-extrabold">
             $
             {person.net_worth ||
               person.netWorth?.replace("$", "").replace("B", "") ||
@@ -73,31 +73,31 @@ export const RichestCard: React.FC<{
       </div>
 
       {/* Details Grid - Simplified */}
-      <div className="grid grid-cols-2 gap-2 p-2 bg-gray-50">
+      <div className="grid grid-cols-2 gap-3 p-3 bg-gray-50">
         <div className="flex items-center gap-2 p-2 rounded-lg bg-white shadow-sm border border-gray-100">
-          <CalendarDays className="h-4 w-4 text-blue-600 flex-shrink-0" />
+          <CalendarDays className="h-5 w-5 text-blue-600 flex-shrink-0" />
           <div>
             <p className="text-xs text-gray-500 uppercase tracking-wide">
               Born
             </p>
-            <p className="font-medium text-gray-800 text-xs">
+            <p className="font-medium text-gray-800 text-sm">
               {person.birth_date || "N/A"}
             </p>
           </div>
         </div>
 
         <div className="flex items-center gap-2 p-2 rounded-lg bg-white shadow-sm border border-gray-100">
-          <User className="h-4 w-4 text-indigo-500 flex-shrink-0" />
+          <User className="h-5 w-5 text-indigo-500 flex-shrink-0" />
           <div>
             <p className="text-xs text-gray-500 uppercase tracking-wide">Age</p>
-            <p className="font-medium text-gray-800 text-xs">
+            <p className="font-medium text-gray-800 text-sm">
               {person.age || "N/A"}
             </p>
           </div>
         </div>
 
         <div className="flex items-center gap-2 p-2 rounded-lg bg-white shadow-sm border border-gray-100">
-          <Trophy className="h-4 w-4 text-amber-500 flex-shrink-0" />
+          <Trophy className="h-5 w-5 text-amber-500 flex-shrink-0" />
           <div>
             <p className="text-xs text-gray-500 uppercase tracking-wide">
               Source
@@ -109,7 +109,7 @@ export const RichestCard: React.FC<{
         </div>
 
         <div className="flex items-center gap-2 p-2 rounded-lg bg-white shadow-sm border border-gray-100">
-          <Building className="h-4 w-4 text-emerald-600 flex-shrink-0" />
+          <Building className="h-5 w-5 text-emerald-600 flex-shrink-0" />
           <div>
             <p className="text-xs text-gray-500 uppercase tracking-wide">
               Company
@@ -121,7 +121,7 @@ export const RichestCard: React.FC<{
         </div>
 
         <div className="col-span-2 flex items-center gap-2 p-2 rounded-lg bg-white shadow-sm border border-gray-100">
-          <Ruler className="h-4 w-4 text-purple-500 flex-shrink-0" />
+          <Ruler className="h-5 w-5 text-purple-500 flex-shrink-0" />
           <div className="w-full">
             <p className="text-xs text-gray-500 uppercase tracking-wide">
               Industry
